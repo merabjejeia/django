@@ -75,7 +75,7 @@ scope = ['https://spreadsheets.google.com/feeds',
 my_mail = 'merabjejeia@gmail.com'
 
 # Авторизовываюсь
-credentials = ServiceAccountCredentials.from_json_keyfile_name('D:/Важное/API/credentials.json', scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name('credentials.json', scope)
 gs = gspread.authorize(credentials)
 
 # Передаю название таблицы. Также можно URL-адресом для open_by_url
