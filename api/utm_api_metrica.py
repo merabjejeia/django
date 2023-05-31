@@ -92,14 +92,12 @@ worksheet = work_sheet.add_worksheet(title='подписки ' + date_range, row
 
 # Загрузка датафрейма в лист
 import gspread_dataframe as gd
-gd.set_with_dataframe(worksheet, filtered_df)
+d2g.upload(filtered_df, work_sheet.id, worksheet.title, credentials=credentials, row_names=True)
 
 # Добавление фильтра к столбцам
 worksheet.set_basic_filter()
 
 # Сохранение изменений
-header_range = f"A1:{chr(ord('A') + len(filtered_df.columns) - 1)}1"
-header_cells = worksheet.range(header_range)
 for cell, header in zip(header_cells, filtered_df.columns):
     cell.value = header
 worksheet.update_cells(header_cells)
